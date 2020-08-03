@@ -4,6 +4,12 @@ public class BowlingGame {
     private final Stack<Frame> frames = new Stack<>();
 
     public BowlingGame frame(int firstThrow, int secondThrow) {
+        if (frames.size() == 10) {
+            Frame frame1 = new Frame(firstThrow, secondThrow);
+            frames.push(frame1);
+            return this;
+        }
+
         if (!frames.isEmpty()) {
             Frame frame = frames.pop();
             if (frame.isStrike()) {

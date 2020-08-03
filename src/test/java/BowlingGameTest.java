@@ -31,7 +31,8 @@ public class BowlingGameTest {
 
     @Test
     void one_spare_and_no_strike_until_last_frame() {
-        bowlingGame.frame(1, 0).frame(1, 0).frame(1, 0).frame(1, 0).frame(1, 0).frame(1, 0).frame(1, 0).frame(1, 0).frame(1, 0);
+        bowlingGame.frame(1, 0).frame(1, 0).frame(1, 0).frame(1, 0).frame(1, 0)
+                .frame(1, 0).frame(1, 0).frame(1, 0).frame(1, 0);
         bowlingGame.frame(2, 8);
         bowlingGame.frame(1, 0);
         assertEquals(20, bowlingGame.getScore());
@@ -57,5 +58,13 @@ public class BowlingGameTest {
         bowlingGame.frame(10, 0).frame(5, 0).frame(10, 0).frame(10, 0).frame(2, 2);
         bowlingGame.frame(0, 0).frame(0, 0).frame(0, 0).frame(0, 0).frame(0, 0);
         assertEquals(58, bowlingGame.getScore());
+    }
+
+    @Test
+    void all_strike(){
+        bowlingGame.frame(10,0).frame(10,0).frame(10,0).frame(10,0).frame(10,0)
+                .frame(10,0).frame(10,0).frame(10,0).frame(10,0).frame(10,0);
+        bowlingGame.frame(10,0);
+        assertEquals(200,bowlingGame.getScore());
     }
 }
