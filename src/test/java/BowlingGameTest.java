@@ -19,6 +19,16 @@ public class BowlingGameTest {
     @Test
     void three_frame_and_on_strike_and_no_spare() {
         bowlingGame.frame(1, 0).frame(3, 3);
-        assertEquals(7,bowlingGame.getScore());
+        assertEquals(7, bowlingGame.getScore());
     }
+
+    @Test
+    void no_trike_and_no_spare_until_last_frame() {
+        bowlingGame.frame(1, 0).frame(1, 0).frame(1, 0).frame(1, 0).frame(1, 0).frame(1, 0).frame(1, 0).frame(1, 0).frame(1, 0);
+        bowlingGame.frame(1,1);
+        bowlingGame.frame(1,1);
+        assertEquals(13,bowlingGame.getScore());
+    }
+
+
 }
